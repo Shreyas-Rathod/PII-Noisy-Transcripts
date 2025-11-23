@@ -1,4 +1,4 @@
-# 📘 **PII Entity Recognition Assignment**
+# 📘 **PII Entity Recognition for Noisy STT Transcripts**
 
 ## **1. Overview**
 
