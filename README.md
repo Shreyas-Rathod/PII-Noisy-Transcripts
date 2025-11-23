@@ -1,5 +1,3 @@
----
-
 # 📘 **README.md — PII Entity Recognition Assignment**
 
 ## **1. Overview**
