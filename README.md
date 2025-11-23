@@ -1,4 +1,4 @@
-# 📘 **README.md — PII Entity Recognition Assignment**
+# 📘 **PII Entity Recognition Assignment**
 
 ## **1. Overview**
 
@@ -44,7 +44,7 @@ project/
 
 ## **3. Dataset (train / dev / test)**
 
-### ✔ **Synthetic STT-style dataset created**
+### **Synthetic STT-style dataset created**
 
 I generated new synthetic PII-rich datasets that simulate noisy speech-to-text transcripts:
 
@@ -92,7 +92,7 @@ Benefits:
 * Smaller architecture than DistilBERT
 * Good token-level accuracy
 
-### ✔ Added dropout to improve generalization:
+### Added dropout to improve generalization:
 
 ```python
 hidden_dropout_prob=0.2
@@ -103,25 +103,25 @@ attention_probs_dropout_prob=0.2
 
 ## **5. Training Code Improvements (`src/train.py`)**
 
-### ✔ Increased warmup steps (for stability):
+###  Increased warmup steps (for stability):
 
 ```python
 warmup_steps = int(0.2 * total_steps)
 ```
 
-### ✔ Added gradient clipping:
+###  Added gradient clipping:
 
 ```python
 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
 ```
 
-### ✔ Changed default hyperparameters:
+###  Changed default hyperparameters:
 
 * epochs = **4**
 * batch_size = **8**
 * learning_rate = **3e-5**
 
-### ✔ Default model updated:
+###  Default model updated:
 
 ```python
 --model_name microsoft/MiniLM-L6-v2
@@ -135,19 +135,19 @@ These changes improve training stability and final NER quality.
 
 To boost **PII precision**, I added **post-processing validation filters** before finalizing predictions.
 
-### ✔ EMAIL validation:
+###  EMAIL validation:
 
 ```python
 " at " in text and " dot " in text
 ```
 
-### ✔ PHONE validation:
+###  PHONE validation:
 
 ```python
 len(digits) >= 7
 ```
 
-### ✔ CREDIT_CARD validation:
+###  CREDIT_CARD validation:
 
 ```python
 len(digits) >= 13
@@ -174,7 +174,7 @@ python src/eval_span_f1.py \
   --pred dev_pred.json
 ```
 
-### ✔ Results:
+###  Results:
 
 * **Per-entity F1: 1.00**
 * **Macro F1: 1.00**
@@ -197,7 +197,7 @@ python src/measure_latency.py \
   --runs 50
 ```
 
-### ✔ Output:
+###  Output:
 
 ```
 p50 = 4.00 ms
